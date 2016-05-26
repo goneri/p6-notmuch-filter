@@ -1,0 +1,10 @@
+[{"Field": "From", "Pattern": ".", "Tags": "+inbox" },
+{"Field": "From", "Pattern": "builds@travis-ci.org", "Tags": "+travis +inbox"},
+{"Field": "subject", "Pattern": "[Glpi-user]", "Tags": "-inbox +list +glpi +glpi-user -inbox" },
+{"Field": "subject", "Pattern": "[Pkg-games-ubuntu]", "Tags": "+list +pkg-games-ubuntu +debian -seen -inbox" },
+{"Field": "subject", "Pattern": "[Glpi-user]", "Tags": "+list +glpi +glpi-user -inbox" },
+{"Field": "subject", "Pattern": "[Glpi-dev]", "Tags": "+list +glpi +glpi-dev -inbox" },
+{"Field": "subject", "Pattern": "[Fusioninventory-user]", "Tags": "+list +fusinv +fusinv-user -inbox" },
+{"Field": "subject", "Pattern": "[Fusioninventory-i18n]", "Tags": "+list +fusinv +fusinv-user -inbox" },
+{"Field": "subject", "Pattern": "[libvirt]", "Tags": "+list +libvirt -inbox" },
+{"Field": "List-Id", "Pattern": "libvir-list.redhat.com", "Tags": "+list +libvirt -inbox" }]
