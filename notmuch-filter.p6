@@ -2,11 +2,12 @@ use v6;
 
 use Email::Simple;
 use Email::Notmuch;
+use File::HomeDir;
 use JSON::Tiny;
 
-my $rules = from-json(slurp 'notmuch-filter.json');
+my $rules = from-json(slurp File::HomeDir.my-home ~ '/Maildir/notmuch-filter.json');
 
-my $database = Database.open('/home/goneri/Maildir', 'w');
+my $database = Database.open(File::HomeDir.my-home ~ '/Maildir', 'w');
 my $query = Query.new($database, 'tag:new');
 my $messages = $query.search_messages();
 
