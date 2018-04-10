@@ -4,10 +4,7 @@ You can use this script to do the initial tagging of all your new mails.
 
 ## Installation
 
-    panda install Email::Notmuch
-    panda install Email::Simple
-    panda install File::HomeDir
-    panda install JSON::Tiny
+    zef install Email::Notmuch Email::Simple File::HomeDir JSON::Tiny
 
 ## Configuration
 
