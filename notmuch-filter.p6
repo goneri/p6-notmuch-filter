@@ -72,8 +72,6 @@ sub set_tags($message_id, @tags, @new_tags) {
 
 my $settings = from-json(slurp File::HomeDir.my-home ~ '/Maildir/notmuch-filter.json');
 
-my %to_change;
-
 for %$settings.kv -> $filter, $rules {
     my @entries = find_messages($filter);
 
@@ -93,16 +91,15 @@ for %$settings.kv -> $filter, $rules {
         my $email = Email::Simple.new($content);
         my @new_tags;
         for @$rules -> %rule {
-            my $re = %rule{'Pattern'};
-            if not $re {
+            if not defined %rule{'Pattern'} {
                 push @new_tags, %rule{'Tags'};
                 next;
             }
-
-            my $field = $email.header(%rule{'Field'});
+            my Str $re = %rule{'Pattern'}.subst('-', '\-', :g).subst('@', '\@', :g);
+            my Str $field = $email.header(%rule{'Field'});
             next unless $field;
 
-            if $field ~~ m :ignorecase/ $re / {
+            if $field ~~ m :ignorecase/ <$re> / {
                 push @new_tags, %rule{'Tags'};
             }
         }
